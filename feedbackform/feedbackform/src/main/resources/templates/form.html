@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Feedback Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container mt-4 d-flex justify-content-center">
+    <h2>Submit Feedback</h2>
+</div>
+<div class="container  d-flex justify-content-center">
+
+
+    <form th:action="@{/submit}" th:object="${feedback}" method="post">
+        <label>Your Name:</label><br>
+        <input type="text" th:field="*{name}" required/><br><br>
+
+        <label>Book Name:</label><br>
+        <input type="text" th:field="*{bookName}" required/><br><br>
+
+        <label>Feedback:</label><br>
+        <textarea th:field="*{feedback}" required></textarea><br><br>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
